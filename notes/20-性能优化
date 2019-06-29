@@ -1,0 +1,7 @@
+父子组件中，当父组件state数据发生改变时，会执行render函数，同样子组件也会重新执行Mounting周期，所以render函数也会重新执行，为了优化让子组建需要在 shouldComponentUpdate周期进行判定
+例：
+shouldComponentUpdate(nextProps, nextState) {
+  // nextProps、nextState更新后的状态与更新前的状态进行比较，如果有修改继续执行更新周期，反之不执行
+  if(nextProps.content!==this.props.content ) return true;
+  return false;
+}

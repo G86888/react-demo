@@ -1,0 +1,26 @@
+import PropTypes from 'prop-types' ===>  引入react的prop-types类型检测方法
+componentName.porpTypes = {
+  属性：PropTypes.func / array / object / string / number / bool /symbol 规定单一类型
+  属性：PropTypes.isRequred 使用此组件是此属性必传
+}
+componentName.defaultProp = {
+  属性：'默认值' 给属性设置默认值
+}
+
+进阶：
+componentName.porpTypes = {
+  属性：PropTypes.oneOfType([PropTypes.string ,PropTypes.number])规定多个类型
+  属性：PropTypes.oneOf([12,13]) 规定传递的值，如果不是数组内的值，则报错
+  属性：PropTypes.arrayOf(PropTypes.number) 规定传递的值必须是数组，而且每一项都是数字
+  // 规定传递的值必须是对象，而且规定属性值得类型
+  属性：PropTypes.objectOf({
+    name:PropTypes.string,
+    age:PropTypes.number
+  })
+  // 还可自定义验证属性值
+  email：function(props,propName,componentName){
+    if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/.test(props[propName])){
+        return new Error('组件' + componentName+ '里的属性' + propName + '不符合邮箱的格式');
+    }
+  }
+}

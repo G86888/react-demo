@@ -1,0 +1,19 @@
+1. Initialization : 初始化阶段
+      constructor 不算生命周期函数，它是构造函数，是es6类的基本语法，虽然它和生命周期函数的性质一样，但不能认为是生命周期函数。
+      但是你要心里把它当成一个生命周期函数，我个人把它看成React的Initialization阶段，定义属性（props）和状态(state)。
+
+2. Mountiog : 挂载阶段
+  伴随着真个虚拟dom的生成，它有三个小的生命周期函数分别是：
+      componentWillMount:在组件即将被挂载到页面的时刻执行
+      render:页面state或props发生变化是执行
+      componentDidMount:组件挂载完成时被执行
+  *注意：
+      componentWillMount和componentDidMount这两个生命周期函数，只在页面刷新时执行一次，而render函数是只要有state和props变化就会执行。
+3. Updation : 更细阶段
+  shouldComponentUpdate:在组件更新之前，自动被执行
+  componentWillUpdate:在组件更新之前，但shouldComponenUpdate之后被执行。但是如果 shouldComponentUpdate返回false，这个函数就不会被执行了。
+  componentDidUpdate:组件更新后执行 在render函数之后执行。 小技巧：render函数执行在Did之前
+  componentWillReceiveProps：子组件接收到父组件传递过来的参数，父组件render函数重新被执行，这个生命周期就会被执行（除了组件Mounting挂载周期时的render函数之外）。
+
+4. Unmounting : 销毁阶段
+  componentWillUnmount:组件从页面中删除的时候执行

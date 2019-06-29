@@ -1,0 +1,10 @@
+给元素绑定ref 属性
+ 例： <div ref={div=>{this.div=div}}>
+        this.div就能拿到元素
+this.setState({
+  name:xxx
+},()=>{
+  this.setState方法为异步更新，可以给第二个参数传递一个回掉
+  传递的回调里就是组件更后的操作，类似于vue的nextTick
+  通过ref属性拿到最新的元素
+})
